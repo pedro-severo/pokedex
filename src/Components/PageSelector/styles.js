@@ -8,11 +8,11 @@ export const PageSelectorContainer = styled.footer`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #292961;
+    background: #30a7d7;
     color: white;
 `
 
 export const PageNumber = styled.strong`
     margin: 0 3vw;
-    font-size: 1.5vh;
+    font-size: 2.5vh;
 `
