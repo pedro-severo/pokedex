@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import { PokeCardContainer, ImgContainer, PokeImg } from "./styles";
-import { useHistory } from "react-router-dom";
-import { goToPokeDetailPage } from "../../Router/routeActions";
 import { useRequestData } from "../../hooks/useRequestData";
+import AddedPokemonsUrlsContext from "../../Contexts/AddedPokemonsUrls";
+import { useHistory } from "react-router-dom";
 
-const PokeCard = ({pokeUrl, pokeName}) => {
+const PokeCard = ({pokeUrl, pokeName, cardOnPokeListPage}) => {
     const pokemon = useRequestData(pokeUrl, undefined)
-
+    const addedPokemonsContext = useContext(AddedPokemonsUrlsContext)
     const history = useHistory()
 
     const handleClickCard = () => {
-        goToPokeDetailPage(history, pokemon.id)
+        if (cardOnPokeListPage) {
+            addedPokemonsContext.dispatch({type: "ADD_POKEMON_ON_POKEDEX", pokeUrl})
+        } else {
+            history.push(`/poke-detail/${pokemon.id}`)
+        }
     }
 
     return (
@@ -29,7 +32,7 @@ const PokeCard = ({pokeUrl, pokeName}) => {
                 </div>
             </PokeCardContainer>
         ) : (
-            <div>{pokeName}</div>
+            <div>{pokeName ? (pokeName) : ("Pokemon")}</div>
         )
     )
 }
