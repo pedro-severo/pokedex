@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
+import styled from "styled-components"
+import PokedexUrlsContext from './Contexts/PokedexUrls';
+import Router from './Router';
+import { initialState, reducer } from './Store';
+
+export const MainStyled = styled.div`
+  margin:0;
+  padding:0;
+`
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainStyled>
+      <PokedexUrlsContext.Provider
+        value={{pokedexPokemons: state.pokedexPokemons, dispatch: dispatch}}
+      >
+        <Router />
+      </PokedexUrlsContext.Provider>
+    </MainStyled>
   );
 }
 

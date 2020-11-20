@@ -1,0 +1,14 @@
+
+# Get Poke List
+https://pokeapi.co/api/v2/pokemon/?offset=0&limit=9
+
+###
+# Get Poke By Id
+https://pokeapi.co/api/v2/pokemon/1
+
+
+### 
+# Get Poke By Name
+https://pokeapi.co/api/v2/pokemon/charmander
+
+
