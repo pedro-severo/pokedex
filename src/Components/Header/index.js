@@ -24,7 +24,7 @@ const Header = ({leftButtonFunction, title, rightButtonFunction}) => {
             </LeftHeaderButton>
             <h1>{title}</h1>
             {rightButtonFunction && <RightHeaderButton onClick={() => rightButtonFunction(history)} >
-                Ir para pokemons adicionados
+                Ir para pokedex
             </RightHeaderButton>}
         </HeaderContainer>
     )

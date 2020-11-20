@@ -4,7 +4,7 @@ import Header from "../Components/Header"
 import HomePage from "../Screens/HomePage"
 import PokeDetailPage from "../Screens/PokeDetailPage"
 import PokedexPage from "../Screens/PokedexPage"
-import { goBack, goToPokedex } from "./routeActions"
+import { goBack, goToPokedex, goToHomePage } from "./routeActions"
 
 
 const Router = () => {
@@ -22,13 +22,13 @@ const Router = () => {
                     <Header 
                         leftButtonFunction={goBack}
                         title=""
-                        rightButtonFunction={() => console.log("oi")}
+                        rightButtonFunction={goToPokedex}
                     />
                     <PokeDetailPage />
                 </Route>
                 <Route exact path="/pokedex">
                     <Header 
-                        leftButtonFunction={goBack}
+                        leftButtonFunction={goToHomePage}
                         title="Pokedex"
                     />
                     <PokedexPage />
