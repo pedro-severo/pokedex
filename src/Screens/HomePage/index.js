@@ -6,22 +6,10 @@ import PokedexUrlsContext from "../../Contexts/PokedexUrls";
 
 const HomePage = () => {
     const data = useRequestData(`${BASE_URL}/?offset=0&limit=20`, undefined);
-    const store = useContext(PokedexUrlsContext)
-
-
-    const pokeList = data.results.filter(pokemon => {
-        store.pokedexPokemons.map(pokemonFromPokedex => {
-            if (pokemonFromPokedex.name === pokemon.name) {
-                return false
-            }
-        })
-    })
-
-    console.log(pokeList)
 
     return (
         <div>
-            {pokeList && <PokeList list={pokeList} cardOnHomePage={true} />}
+            {data && <PokeList list={data.results} cardOnHomePage={true} />}
         </div>
     )
 }
