@@ -1,8 +1,10 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import AddedPokemonsPage from "../Components/AddedPokemonsPage"
-import PokeDetailPage from "../Components/PokeDetailPage"
-import PokeListPage from "../Components/PokeListPage"
+import Header from "../Components/Header"
+import HomePage from "../Screens/HomePage"
+import PokeDetailPage from "../Screens/PokeDetailPage"
+import PokedexPage from "../Screens/PokedexPage"
+import { goBack, goToPokedex } from "./routeActions"
 
 
 const Router = () => {
@@ -10,13 +12,26 @@ const Router = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/">
-                    <PokeListPage />
+                    <Header 
+                        title="Lista de pokemons"
+                        leftButtonFunction={goToPokedex}
+                    />
+                    <HomePage />
                 </Route>
                 <Route exact path="/poke-detail/:id">
+                    <Header 
+                        leftButtonFunction={goBack}
+                        title=""
+                        rightButtonFunction={() => console.log("oi")}
+                    />
                     <PokeDetailPage />
                 </Route>
-                <Route exact path="/added-pokemons">
-                    <AddedPokemonsPage />
+                <Route exact path="/pokedex">
+                    <Header 
+                        leftButtonFunction={goBack}
+                        title="Pokedex"
+                    />
+                    <PokedexPage />
                 </Route>
             </Switch>
         </BrowserRouter>

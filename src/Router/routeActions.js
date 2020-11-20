@@ -6,6 +6,6 @@ export const goToPokeDetailPage = (history, id) => {
   history.push(`/poke-detail/${id}`);
 };
   
-export const goToAddedPokemonsPage = (history) => {
-  history.push("/added-pokemons");
+export const goToPokedex = (history) => {
+  history.push("/pokedex");
 };

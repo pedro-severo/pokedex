@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import styled from "styled-components"
-import AddedPokemonsUrlsContext from './Contexts/AddedPokemonsUrls';
+import PokedexUrlsContext from './Contexts/PokedexUrls';
 import Router from './Router';
 import { initialState, reducer } from './Store';
 
@@ -14,11 +14,11 @@ function App() {
 
   return (
     <MainStyled>
-      <AddedPokemonsUrlsContext.Provider
-        value={{addedPokemonsUrls: state.addedPokemonsUrls, dispatch: dispatch}}
+      <PokedexUrlsContext.Provider
+        value={{pokedexPokemons: state.pokedexPokemons, dispatch: dispatch}}
       >
         <Router />
-      </AddedPokemonsUrlsContext.Provider>
+      </PokedexUrlsContext.Provider>
     </MainStyled>
   );
 }
