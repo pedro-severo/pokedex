@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { backgroundCard } from "../../Constants/colors"
 
 export const PokeCardContainer = styled.div`
     height: 35vh;
@@ -9,7 +10,7 @@ export const PokeCardContainer = styled.div`
 `
 
 export const ImgContainer = styled.div`
-    background: #f1f1f1;
+    background: ${backgroundCard};
     display: flex;
     justify-content: center;
     align-items: center;

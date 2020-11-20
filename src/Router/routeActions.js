@@ -7,8 +7,8 @@ export const goToHomePage = (history) => {
   history.push("/");
 };
 
-export const goToPokeDetailPage = (history, id) => {
-  history.push(`/poke-detail/${id}`);
+export const goToPokeDetailPage = (history, pokeName) => {
+  history.push(`/poke-detail/${pokeName}`);
 };
   
 export const goToPokedex = (history) => {

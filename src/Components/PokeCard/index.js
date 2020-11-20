@@ -35,7 +35,7 @@ const PokeCard = ({pokeUrl, pokeName, cardOnHomePage}) => {
                     <button onClick={handleClickAddOrRemovePokemon}>
                         {cardOnHomePage ? "Adicionar a Pokedex" : "Remover da Pokedex"}
                     </button>
-                    <button onClick={() => goToPokeDetailPage(history, pokemon.id)}>
+                    <button onClick={() => goToPokeDetailPage(history, pokemon.name)}>
                         Ver detalhes
                     </button>
                 </ButtonsContainer>

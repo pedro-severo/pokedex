@@ -5,6 +5,7 @@ import { HeaderContainer, LeftHeaderButton, RightHeaderButton } from "./styles";
 
 const Header = ({leftButtonFunction, title, rightButtonFunction}) => {
     const history = useHistory()
+    const pathParams = useParams()
     
     const leftButtonTitle = () => {
         switch(title) {
@@ -22,7 +23,7 @@ const Header = ({leftButtonFunction, title, rightButtonFunction}) => {
             <LeftHeaderButton onClick={() => leftButtonFunction(history)} >
                 {leftButtonTitle()}
             </LeftHeaderButton>
-            <h1>{title}</h1>
+            <h1>{title ? title : pathParams.pokeName}</h1>
             {rightButtonFunction && <RightHeaderButton onClick={() => rightButtonFunction(history)} >
                 Ir para pokedex
             </RightHeaderButton>}

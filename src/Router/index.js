@@ -18,7 +18,7 @@ const Router = () => {
                     />
                     <HomePage />
                 </Route>
-                <Route exact path="/poke-detail/:id">
+                <Route exact path="/poke-detail/:pokeName">
                     <Header 
                         leftButtonFunction={goBack}
                         title=""
